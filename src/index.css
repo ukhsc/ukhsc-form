@@ -40,30 +40,41 @@ button {
   display: flex;
   justify-content: center;
 }
-button:hover{
+button:hover {
   background-color: #5f5f5f;
   color: white;
 }
 
-input{
+input {
   padding: 15px;
   border-radius: 15px;
   border: none;
   background-color: #3f3f3faa;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
   font-size: 16px;
 }
-input:hover{
+input:hover {
   outline: 2px solid #484848;
   outline-offset: 0px;
   background-color: #3f3f3faa;
 }
-input:focus{
+input:focus {
   outline: 2px solid #585858;
   outline-offset: 2px;
   background-color: #3f3f3faa;
 }
-label{
+label {
   font-family: inherit;
   font-weight: 500;
   font-size: 14px;
@@ -71,7 +82,7 @@ label{
   margin-left: 0px;
 }
 
-.loginform{
+.loginform {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -79,21 +90,32 @@ label{
   padding-top: 5px;
   box-sizing: border-box;
 }
-.fpbtn{
+.fpbtn {
   color: white;
   margin: 15px;
   text-align: center;
   font-size: 15px;
   cursor: pointer;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
   font-weight: 500;
   text-decoration: none;
 }
-.fpbtn:hover{
+.fpbtn:hover {
   color: rgb(0, 132, 255);
 }
 
-.contentbox{
+.contentbox {
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -103,12 +125,12 @@ label{
   border-radius: 20px;
 }
 
-section{
+section {
   display: flex;
   height: 100vh;
   justify-content: center;
 }
-.voteCode_Text{
+.voteCode_Text {
   color: white;
   margin: 0;
   padding: 10px;
@@ -116,11 +138,22 @@ section{
   border-radius: 100px;
   padding-left: 15px;
   padding-right: 15px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
   font-weight: 500;
 }
 
-.box-background{
+.box-background {
   width: 100vw;
   height: 100vh;
   background-color: #323232a4;
@@ -133,7 +166,7 @@ section{
   justify-content: center;
   justify-items: center;
 }
-.m-contentbox{
+.m-contentbox {
   background-color: rgb(45, 45, 45);
   color: #ffffff;
   box-sizing: border-box;
@@ -147,10 +180,10 @@ section{
   margin: 20px;
   min-width: 250px;
 }
-.m-title{
+.m-title {
   margin: 0px;
 }
-.m-message{
+.m-message {
   margin: 0px;
   margin-top: 5px;
 }
@@ -164,11 +197,22 @@ section{
   animation: spin 1s linear infinite; /* 旋轉動畫 */
 }
 
-.copyright{
+.copyright {
   display: block;
   margin: 0px;
   font-size: 14px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
   font-weight: 500;
   color: #818181;
   position: fixed;
@@ -179,37 +223,52 @@ section{
   width: 100vw;
   text-align: center;
 }
-.select-input{
+.select-input {
   padding: 15px;
   border-radius: 15px;
   border: none;
   background-color: #3f3f3faa;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
   font-size: 16px;
 }
-.select-input:hover{
+.select-input:hover {
   outline: 2px solid #484848;
   outline-offset: 0px;
   background-color: #3f3f3faa;
 }
-.select-input:focus{
+.select-input:focus {
   outline: 2px solid #585858;
   outline-offset: 2px;
   background-color: #3f3f3faa;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-@media (min-width:100px) {
-  .contentbox{
+@media (min-width: 100px) {
+  .contentbox {
     width: 100%;
   }
 }
-@media (min-width:700px) {
-  .contentbox{
+@media (min-width: 700px) {
+  .contentbox {
     width: 50%;
     max-width: 500px;
   }
@@ -235,12 +294,12 @@ section{
     background-color: rgb(236, 236, 236);
     color: #000000;
   }
-  input:hover{
+  input:hover {
     outline: 2px solid #dbdbdb;
     outline-offset: 0px;
     background-color: #eeeeee;
   }
-  input:focus{
+  input:focus {
     outline: 2px solid #454545;
     outline-offset: 2px;
     background-color: #eeeeee;
@@ -249,21 +308,21 @@ section{
     background-color: rgb(236, 236, 236);
     color: #000000;
   }
-  .select-input:hover{
+  .select-input:hover {
     outline: 2px solid #dbdbdb;
     outline-offset: 0px;
     background-color: #eeeeee;
   }
-  .select-input:focus{
+  .select-input:focus {
     outline: 2px solid #454545;
     outline-offset: 2px;
     background-color: #eeeeee;
   }
 
-  section{
+  section {
     opacity: 1;
   }
-  .m-contentbox{
+  .m-contentbox {
     background-color: white;
     color: #000;
     box-shadow: 0px 0px 15px 1px #9999997c;
@@ -275,20 +334,19 @@ section{
     border: 3px solid #f3f3f380; /* Light grey */
     border-top: 3px solid #ffffff; /* Blue */
   }
-  .fpbtn{
+  .fpbtn {
     color: rgb(129, 129, 129);
   }
-  .fpbtn:hover{
+  .fpbtn:hover {
     color: rgb(0, 0, 0);
   }
-  .copyright{
+  .copyright {
     background-color: #ededed;
     color: #818181;
   }
-  .voteCode_Text{
+  .voteCode_Text {
     color: #2b7100;
     background-color: #d8ffe4;
     border: 1px solid #b0caa0;
   }
-
 }
