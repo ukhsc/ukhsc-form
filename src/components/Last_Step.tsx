@@ -5,7 +5,7 @@ export function Last_Step() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [boxStates, setBoxStates] = useState(false);
-  const ordererToken = localStorage.getItem('ordererToken');
+  const orderer_token = localStorage.getItem('orderer_token');
   const navigate = useNavigate();
 
   const handleGoogleLogin = () => {
@@ -37,14 +37,14 @@ export function Last_Step() {
   );
 
   useEffect(() => {
-    if (!ordererToken) {
+    if (!orderer_token) {
       setMessage('請先完成購買程序');
       setBoxStates(true);
       setTimeout(() => {
         navigate('/get-code');
       }, 2000);
     }
-  }, [navigate,ordererToken]);
+  }, [navigate, orderer_token]);
 
   return (
     <section>

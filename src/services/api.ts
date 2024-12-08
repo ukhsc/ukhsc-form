@@ -1,6 +1,8 @@
+/// <reference types="vite/client" />
 import { School, OrderData, Order } from '../types';
 
-const API_BASE_URL = 'https://api.ukhsc.org';
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || 'https://api.ukhsc.org';
 
 export const apiService = {
   async getPartnerSchools(): Promise<School[]> {
@@ -43,7 +45,7 @@ export const apiService = {
 
   async getOrderInfo(): Promise<Order> {
     try {
-      const token = localStorage.getItem('ordererToken');
+      const token = localStorage.getItem('orderer_token');
       if (!token) throw new Error('No orderer token found');
 
       const response = await fetch(
@@ -71,7 +73,7 @@ export const apiService = {
 
   async linkGoogleAccount(code: string, redirectUri: string): Promise<unknown> {
     try {
-      const token = localStorage.getItem('ordererToken');
+      const token = localStorage.getItem('orderer_token');
       if (!token) throw new Error('No orderer token found');
 
       const response = await fetch(

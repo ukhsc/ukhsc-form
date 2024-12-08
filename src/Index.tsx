@@ -6,11 +6,19 @@ import { GetVoteCode } from './components/GetVoteCode';
 import { GoogleOAuthCallback } from './components/GoogleOauthCallback';
 import { Last_Step } from './components/Last_Step';
 import { SuccessPage } from './components/SuccessPage';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+  const navigate = useNavigate();
+
   useEffect(() => {
-    window.location.href = '/get-code';
-  }, []);
+    const loggedIn = localStorage.getItem('orderer_token');
+    if (loggedIn) {
+      navigate('/success');
+    } else {
+      navigate('/get-code');
+    }
+  }, [navigate]);
 
   return null;
 }
