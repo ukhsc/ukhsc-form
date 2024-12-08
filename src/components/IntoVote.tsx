@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
-
+import { useState, useEffect, useContext } from 'react';
+import { SchoolContext } from '../Index';
 import apiService from '../services/api';
+import { useNavigate } from 'react-router-dom';
 
 export function IntoVote() {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [schoolName, setSchoolName] = useState('');
+  const { schoolId, schoolName } = useContext(SchoolContext);
 
   //儲存購買人基本資訊
   const [name, setName] = useState('');
@@ -13,10 +15,6 @@ export function IntoVote() {
   const [sticker, setSticker] = useState('0002');
   const [message, setMessage] = useState('');
   const [boxStates, setBoxStates] = useState(false);
-  const currentUrl = window.location.href;
-  const urlParams = new URL(currentUrl);
-  const VoteID = urlParams.searchParams.get('school');
-  const schoolNameFromUrl = urlParams.searchParams.get('name');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +22,7 @@ export function IntoVote() {
 
     try {
       const orderData = {
-        school_id: parseInt(VoteID),
+        school_id: parseInt(schoolId),
         class: Class,
         number: number,
         real_name: name,
@@ -33,7 +31,7 @@ export function IntoVote() {
 
       const token = await apiService.createPersonalOrder(orderData);
       localStorage.setItem('ordererToken', token);
-      window.location.href = '/last-step';
+      navigate('/last-step');
     } catch (error) {
       setMessage(error.message);
       setBoxStates(true);
@@ -44,10 +42,10 @@ export function IntoVote() {
 
   useEffect(() => {
     document.title = '高校特約聯盟會員購買';
-    if (schoolNameFromUrl) {
-      setSchoolName(decodeURIComponent(schoolNameFromUrl));
+    if (!schoolId) {
+      navigate('/get-code');
     }
-  }, [schoolNameFromUrl]);
+  }, []);
 
   const closebox = () => {
     setMessage('');
@@ -99,7 +97,7 @@ export function IntoVote() {
               onChange={(e) => setNumber(e.target.value)}
               placeholder="請在此輸入您的座號"
               required
-              maxLength="6"
+              maxLength={6}
             />
             <label>是否需要貼紙</label>
             <select

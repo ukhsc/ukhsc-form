@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import apiService from '../services/api';
 
 export function GoogleOAuthCallback() {
-  const [status, setStatus] = useState('處理中...');
+  const [status, setStatus] = useState(true);
   const [message, setMessage] = useState('');
   const [boxStates, setBoxStates] = useState(false);
 
@@ -28,7 +29,7 @@ export function GoogleOAuthCallback() {
           authCode,
           window.location.origin + '/oauth/google/callback'
         );
-        setStatus('Google 帳號綁定成功！');
+        setStatus(false);
         // setTimeout(() => {
         //   window.location.href = '/get-code';
         // }, 2000);
@@ -43,10 +44,11 @@ export function GoogleOAuthCallback() {
     handleCallback();
   }, []);
 
+  const navigate = useNavigate();
   const closebox = () => {
     setMessage('');
     setBoxStates(false);
-    window.location.href = '/get-code';
+    navigate('/oauth/google/callback');
   };
 
   const Messagebox = () => (
@@ -68,7 +70,7 @@ export function GoogleOAuthCallback() {
         <div className="contentbox">
           <h1>Google 帳號綁定</h1>
           <div className="loginform">
-            <p>{status}</p>
+            <p>{status ? <div className="loader"></div> : '綁定成功！'}</p>
           </div>
           <p className="copyright">
             Copyright © 2024 UKHSC 高雄高校特約聯盟 保留一切權利。

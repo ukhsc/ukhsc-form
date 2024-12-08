@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #fadec4;
+  background-color: #34495d;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -47,7 +47,7 @@ button:hover {
 
 input {
   padding: 15px;
-  border-radius: 15px;
+  border-radius: 100px;
   border: none;
   background-color: #3f3f3faa;
   font-family:
@@ -70,7 +70,7 @@ input:hover {
   background-color: #3f3f3faa;
 }
 input:focus {
-  outline: 2px solid #585858;
+  outline: 2px solid #34495d;
   outline-offset: 2px;
   background-color: #3f3f3faa;
 }
@@ -225,7 +225,7 @@ section {
 }
 .select-input {
   padding: 15px;
-  border-radius: 15px;
+  border-radius: 100px;
   border: none;
   background-color: #3f3f3faa;
   font-family:
@@ -248,7 +248,7 @@ section {
   background-color: #3f3f3faa;
 }
 .select-input:focus {
-  outline: 2px solid #585858;
+  outline: 2px solid #34495d;
   outline-offset: 2px;
   background-color: #3f3f3faa;
 }
@@ -274,24 +274,53 @@ section {
   }
 }
 
+/** 最後一步頁面 **/
+.ls_firstBox {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(to bottom, #1a2033, #242424);
+  background-size: 100% 20%;
+  background-repeat: no-repeat;
+}
+.ls_firstBox h1 {
+  margin: 0;
+}
+.google_button_text {
+  margin: 0;
+}
+.connect_btn {
+  align-items: center;
+}
+.connect_btn svg {
+  margin: 5px 5px 5px 0;
+}
+.connect_btn:hover svg {
+  fill: white;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #34495d;
+    background-color: #fadec4;
   }
   a:hover {
     color: #747bff;
   }
   button {
-    background-color: #2472ee;
+    background-color: #34495d;
     color: white;
   }
   button:hover {
-    background-color: #1d5fc8;
+    background-color: #1d2833;
     color: white;
   }
   input {
-    background-color: rgb(236, 236, 236);
+    background-color: white;
     color: #000000;
   }
   input:hover {
@@ -305,7 +334,7 @@ section {
     background-color: #eeeeee;
   }
   .select-input {
-    background-color: rgb(236, 236, 236);
+    background-color: white;
     color: #000000;
   }
   .select-input:hover {
@@ -323,8 +352,8 @@ section {
     opacity: 1;
   }
   .m-contentbox {
-    background-color: white;
-    color: #000;
+    background-color: #fadec4;
+    color: #34495d;
     box-shadow: 0px 0px 15px 1px #9999997c;
   }
   .box-background {
@@ -341,26 +370,17 @@ section {
     color: rgb(0, 0, 0);
   }
   .copyright {
-    background-color: #ededed;
+    background-color: white;
     color: #818181;
   }
   .voteCode_Text {
-    color: #2b7100;
-    background-color: #d8ffe4;
-    border: 1px solid #b0caa0;
+    color: #34495d;
+    background-color: white;
   }
-}
-
-// 最後一步頁面
-.ls_firstBox {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-items: center;
-  flex-direction: column;
-}
-.google_button_text {
-  margin: 0;
+  .connect_btn svg {
+    fill: white;
+  }
+  .ls_firstBox {
+    background-image: linear-gradient(to bottom, #c4d8ec, #fadec4);
+  }
 }

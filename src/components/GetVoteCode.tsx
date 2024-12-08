@@ -1,13 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import apiService from '../services/api';
-import { School } from '../types';
+import { School, PartnerPlan } from '../types';
+import { SchoolContext } from '../Index';
 
 export function GetVoteCode() {
   const [loading, setLoading] = useState(false);
-  const [schoolId, setSchoolId] = useState('');
   const [message, setMessage] = useState('');
   const [boxStates, setBoxStates] = useState(false);
   const [schools, setSchools] = useState<School[]>([]);
+  const navigate = useNavigate();
+  const { schoolId, schoolName, setSchoolName, setSchoolId } =
+    useContext(SchoolContext);
 
   const urlParams = new URL(window.location.href);
   const voteError = urlParams.searchParams.get('voteError');
@@ -21,12 +25,21 @@ export function GetVoteCode() {
       setBoxStates(true);
     }
 
+    if (!schoolId) {
+      navigate('/get-code');
+    }
+
     const loadSchools = async () => {
       try {
-        const schoolsData = await apiService.getPartnerSchools();
+        let schoolsData = await apiService.getPartnerSchools();
+        schoolsData = schoolsData.filter(
+          (school) =>
+            school.plan === PartnerPlan.Personal ||
+            school.plan === PartnerPlan.Combined
+        );
         setSchools(schoolsData);
       } catch (error) {
-        setMessage('載入學校列表失敗');
+        setMessage('無法載入合作學校列表，請再試一次。');
         setBoxStates(true);
       }
     };
@@ -37,7 +50,7 @@ export function GetVoteCode() {
   const closebox = () => {
     setMessage('');
     setBoxStates(false);
-    window.location.href = '/get-code';
+    navigate('/get-code');
   };
 
   const Messagebox = () => (
@@ -59,10 +72,12 @@ export function GetVoteCode() {
     const selectedSchool = schools.find(
       (school) => school.id === parseInt(schoolId)
     );
-
+    setSchoolName(selectedSchool.short_name);
+    setSchoolId(schoolId);
     setTimeout(() => {
+      console.log(schoolId);
       // 將完整的學校資訊傳遞過去
-      window.location.href = `/entrance?school=${schoolId}&name=${encodeURIComponent(selectedSchool.short_name)}`;
+      navigate('/entrance');
     }, 1000);
   };
 
