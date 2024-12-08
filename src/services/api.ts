@@ -93,7 +93,7 @@ export const apiService = {
       if (!response.ok) {
         const error = await response.json();
 
-        if (error.startWith('Account already linked')) {
+        if (error.error.startsWith('Account already linked')) {
           throw new Error(
             '這個 Google 帳號已經綁定過其他高校特約會員帳號了，請換一個 Google 帳號綁定看看！'
           );
