@@ -40,6 +40,7 @@ button {
   display: flex;
   justify-content: center;
 }
+
 button:hover {
   background-color: #5f5f5f;
   color: white;
@@ -65,16 +66,19 @@ input {
   font-size: 16px;
   color: #34495d;
 }
+
 input:hover {
   outline: 2px solid #484848;
   outline-offset: 0px;
   background-color: #fadec4aa;
 }
+
 input:focus {
   outline: 2px solid #34495d;
   outline-offset: 2px;
   background-color: #fadec4;
 }
+
 label {
   font-family: inherit;
   font-weight: 500;
@@ -91,6 +95,7 @@ label {
   padding-top: 5px;
   box-sizing: border-box;
 }
+
 .fpbtn {
   color: white;
   margin: 15px;
@@ -112,6 +117,7 @@ label {
   font-weight: 500;
   text-decoration: none;
 }
+
 .fpbtn:hover {
   color: rgb(0, 132, 255);
 }
@@ -131,6 +137,7 @@ section {
   height: 100vh;
   justify-content: center;
 }
+
 .voteCode_Text {
   color: white;
   margin: 0;
@@ -167,6 +174,7 @@ section {
   justify-content: center;
   justify-items: center;
 }
+
 .m-contentbox {
   background-color: rgb(45, 45, 45);
   color: #ffffff;
@@ -181,21 +189,28 @@ section {
   margin: 20px;
   min-width: 250px;
 }
+
 .m-title {
   margin: 0px;
 }
+
 .m-message {
   margin: 0px;
   margin-top: 5px;
 }
 
 .loader {
-  border: 3px solid #f3f3f3; /* Light grey */
-  border-top: 3px solid #000000; /* Blue */
+  border: 3px solid #f3f3f3;
+  /* Light grey */
+  border-top: 3px solid #000000;
+  /* Blue */
   border-radius: 100px;
-  width: 15px; /* 圓的寬度 */
-  height: 15px; /* 圓的高度 */
-  animation: spin 1s linear infinite; /* 旋轉動畫 */
+  width: 15px;
+  /* 圓的寬度 */
+  height: 15px;
+  /* 圓的高度 */
+  animation: spin 1s linear infinite;
+  /* 旋轉動畫 */
 }
 
 .copyright {
@@ -224,6 +239,7 @@ section {
   width: 100vw;
   text-align: center;
 }
+
 .select-input {
   appearance: none;
   -webkit-appearance: none;
@@ -246,11 +262,13 @@ section {
   font-size: 16px;
   color: #34495d;
 }
+
 .select-input:hover {
   outline: 2px solid #484848;
   outline-offset: 2px;
   background-color: #fadec4aa;
 }
+
 .select-input:focus {
   outline: 2px solid #34495d;
   outline-offset: 2px;
@@ -261,6 +279,7 @@ section {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -271,6 +290,7 @@ section {
     width: 100%;
   }
 }
+
 @media (min-width: 700px) {
   .contentbox {
     width: 50%;
@@ -287,26 +307,33 @@ section {
   align-items: center;
   justify-items: center;
   flex-direction: column;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(138, 121, 107, 0.67),
-    #34495d
-  );
+  background-image: linear-gradient(to bottom,
+      rgba(138, 121, 107, 0.67),
+      #34495d);
   background-size: 100% 20%;
   background-repeat: no-repeat;
 }
+
 .ls_firstBox h1 {
   margin: 0;
 }
+
+.ls_firstBox p {
+  padding: 0 20px;
+}
+
 .google_button_text {
   margin: 0;
 }
+
 .connect_btn {
   align-items: center;
 }
+
 .connect_btn svg {
   margin: 5px 5px 5px 0;
 }
+
 .connect_btn:hover svg {
   fill: white;
 }
@@ -320,37 +347,45 @@ section {
   margin: 20px;
   padding: 15px;
 }
+
 .successBox p {
   margin: 5px;
   font-size: 18px;
 }
+
 .successBox svg {
   margin: 10px;
 }
+
 .done_title {
   margin: 5px;
   font-size: 24px;
 }
+
 #description {
   font-size: 15px;
   margin: 10px;
   margin: 0;
 }
+
 .description_Box {
   margin: 15px;
   padding: 20px;
   border: 1px solid #b1b1b1;
   border-radius: 25px;
 }
+
 .description_Box_title {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
+
 .description_Box_title p {
   margin: 5px;
   font-weight: 500;
 }
+
 .main_box {
   margin: 15px;
   background-color: white;
@@ -362,6 +397,7 @@ section {
   align-items: center;
   box-sizing: border-box;
 }
+
 .main_title {
   margin: 10px;
   width: 100%;
@@ -369,28 +405,34 @@ section {
   font-size: 20px;
   box-sizing: border-box;
 }
+
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
   width: 100%;
 }
+
 ul li:not(:last-child) {
   border-bottom: 1px solid #ededed;
 }
+
 .list_item {
   display: flex;
 }
+
 .value_text {
   margin: 10px;
   display: flex;
   align-items: center;
 }
+
 .list_title {
   display: flex;
   align-items: center;
   margin-right: auto;
 }
+
 .list_title svg {
   margin: 10px;
 }
@@ -400,40 +442,49 @@ ul li:not(:last-child) {
     color: #34495d;
     background-color: #fadec4;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #34495d;
     color: white;
   }
+
   button:hover {
     background-color: #1d2833;
     color: white;
   }
+
   input {
     background-color: white;
     color: #000000;
   }
+
   input:hover {
     outline: 2px solid #dbdbdb;
     outline-offset: 0px;
     background-color: #eeeeee;
   }
+
   input:focus {
     outline: 2px solid #454545;
     outline-offset: 2px;
     background-color: #eeeeee;
   }
+
   .select-input {
     background-color: white;
     color: #000000;
   }
+
   .select-input:hover {
     outline: 2px solid #dbdbdb;
     outline-offset: 0px;
     background-color: #eeeeee;
   }
+
   .select-input:focus {
     outline: 2px solid #454545;
     outline-offset: 2px;
@@ -443,35 +494,46 @@ ul li:not(:last-child) {
   section {
     opacity: 1;
   }
+
   .m-contentbox {
     background-color: #fadec4;
     color: #34495d;
     box-shadow: 0px 0px 15px 1px #9999997c;
   }
+
   .box-background {
     background-color: #cccccc6f;
   }
+
   .loader {
-    border: 3px solid #f3f3f380; /* Light grey */
-    border-top: 3px solid #ffffff; /* Blue */
+    border: 3px solid #f3f3f380;
+    /* Light grey */
+    border-top: 3px solid #ffffff;
+    /* Blue */
   }
+
   .fpbtn {
     color: rgb(129, 129, 129);
   }
+
   .fpbtn:hover {
     color: rgb(0, 0, 0);
   }
+
   .copyright {
     background-color: white;
     color: #818181;
   }
+
   .voteCode_Text {
     color: #34495d;
     background-color: white;
   }
+
   .connect_btn svg {
     fill: white;
   }
+
   .ls_firstBox {
     background-image: linear-gradient(to bottom, #c4d8ec, #fadec4);
   }
