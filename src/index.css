@@ -350,3 +350,17 @@ section {
     border: 1px solid #b0caa0;
   }
 }
+
+// 最後一步頁面
+.ls_firstBox {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+}
+.google_button_text {
+  margin: 0;
+}
