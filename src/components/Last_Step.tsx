@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function Last_Step() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [boxStates, setBoxStates] = useState(false);
   const ordererToken = localStorage.getItem('ordererToken');
+  const navigate = useNavigate();
 
   const handleGoogleLogin = () => {
     setLoading(true);
@@ -39,17 +41,20 @@ export function Last_Step() {
       setMessage('請先完成購買程序');
       setBoxStates(true);
       setTimeout(() => {
-        window.location.href = '/get-code';
+        navigate('/get-code');
       }, 2000);
     }
-  }, []);
+  }, [navigate,ordererToken]);
 
   return (
     <section>
       <div className="ls_firstBox">
         <p>快成功了...</p>
         <h1>只差最後一步</h1>
-        <p>請點擊下方按鈕前往綁定 Google 帳號</p>
+        <p>
+          請點擊下方按鈕前往綁定您的 Google 帳號，以便接收訂單通知及未來登入 App
+          使用優惠
+        </p>
         <button className="connect_btn" onClick={handleGoogleLogin}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

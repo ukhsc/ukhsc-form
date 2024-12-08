@@ -7,7 +7,6 @@ export function GoogleOAuthCallback() {
   const [status, setStatus] = useState(true);
   const [message, setMessage] = useState('');
   const [boxStates, setBoxStates] = useState(false);
-
   const hasExecutedRef = useRef(false);
 
   useEffect(() => {
@@ -29,13 +28,13 @@ export function GoogleOAuthCallback() {
           authCode,
           window.location.origin + '/oauth/google/callback'
         );
-        setStatus(false);
-        // setTimeout(() => {
-        //   window.location.href = '/get-code';
-        // }, 2000);
+
+        setTimeout(() => {
+          navigate('/success');
+        }, 2000);
       } catch (error) {
         // TODO: 需要更親近使用者的用語
-        setMessage(`綁定失敗：${error.message}`);
+        setMessage(`綁定失敗：\n${error.message}`);
         console.error(error);
         setBoxStates(true);
       }
@@ -48,7 +47,7 @@ export function GoogleOAuthCallback() {
   const closebox = () => {
     setMessage('');
     setBoxStates(false);
-    navigate('/oauth/google/callback');
+    navigate('/last-step');
   };
 
   const Messagebox = () => (

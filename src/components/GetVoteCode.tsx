@@ -5,7 +5,6 @@ import { School, PartnerPlan } from '../types';
 import { SchoolContext } from '../Index';
 
 export function GetVoteCode() {
-  const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [boxStates, setBoxStates] = useState(false);
   const [schools, setSchools] = useState<School[]>([]);
@@ -67,18 +66,13 @@ export function GetVoteCode() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    // 找到選中的學校資訊
     const selectedSchool = schools.find(
       (school) => school.id === parseInt(schoolId)
     );
     setSchoolName(selectedSchool.short_name);
     setSchoolId(schoolId);
-    setTimeout(() => {
-      console.log(schoolId);
-      // 將完整的學校資訊傳遞過去
-      navigate('/entrance');
-    }, 1000);
+    console.log(schoolId);
+    navigate('/entrance');
   };
 
   return (
@@ -103,9 +97,7 @@ export function GetVoteCode() {
                 </option>
               ))}
             </select>
-            <button type="submit" disabled={loading}>
-              {loading ? <div className="loader"></div> : '下一步'}
-            </button>
+            <button type="submit">下一步</button>
           </form>
           <p className="copyright">
             Copyright © 2024 UKHSC 高校特約聯盟 保留一切權利。
