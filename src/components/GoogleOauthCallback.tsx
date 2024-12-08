@@ -1,15 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import apiService from '../services/api';
 
 export function GoogleOAuthCallback() {
   const [status, setStatus] = useState('處理中...');
-  const authCode = new URLSearchParams(window.location.search).get('code');
   const [message, setMessage] = useState('');
   const [boxStates, setBoxStates] = useState(false);
 
+  const hasExecutedRef = useRef(false);
+
   useEffect(() => {
     const handleCallback = async () => {
+      if (hasExecutedRef.current) return;
+      hasExecutedRef.current = true;
+
+      const authCode = new URLSearchParams(window.location.search).get('code');
+      console.log('authCode:', authCode);
+
       if (!authCode) {
         setMessage('未收到授權碼');
         setBoxStates(true);
@@ -22,17 +29,19 @@ export function GoogleOAuthCallback() {
           window.location.origin + '/oauth/google/callback'
         );
         setStatus('Google 帳號綁定成功！');
-        setTimeout(() => {
-          window.location.href = '/get-code';
-        }, 2000);
+        // setTimeout(() => {
+        //   window.location.href = '/get-code';
+        // }, 2000);
       } catch (error) {
+        // TODO: 需要更親近使用者的用語
         setMessage(`綁定失敗：${error.message}`);
+        console.error(error);
         setBoxStates(true);
       }
     };
 
     handleCallback();
-  }, [authCode]);
+  }, []);
 
   const closebox = () => {
     setMessage('');
@@ -62,7 +71,7 @@ export function GoogleOAuthCallback() {
             <p>{status}</p>
           </div>
           <p className="copyright">
-            Copyright © 2024 UKHSC 高校特約聯盟 保留一切權利。
+            Copyright © 2024 UKHSC 高雄高校特約聯盟 保留一切權利。
           </p>
         </div>
       </section>

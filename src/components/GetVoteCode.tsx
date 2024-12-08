@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import apiService from '../services/api';
+import { School } from '../types';
 
 export function GetVoteCode() {
   const [loading, setLoading] = useState(false);
   const [schoolId, setSchoolId] = useState('');
   const [message, setMessage] = useState('');
   const [boxStates, setBoxStates] = useState(false);
-  const [schools, setSchools] = useState([]);
+  const [schools, setSchools] = useState<School[]>([]);
 
   const urlParams = new URL(window.location.href);
   const voteError = urlParams.searchParams.get('voteError');

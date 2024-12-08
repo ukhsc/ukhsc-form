@@ -1,8 +1,9 @@
+import { School, OrderData } from '../types';
+
 const API_BASE_URL = 'https://api.ukhsc.org';
 
 export const apiService = {
-  // 取得合作學校列表
-  async getPartnerSchools() {
+  async getPartnerSchools(): Promise<School[]> {
     try {
       const response = await fetch(`${API_BASE_URL}/resources/partner-school`);
       if (!response.ok) throw new Error('Failed to fetch schools');
@@ -13,8 +14,7 @@ export const apiService = {
     }
   },
 
-  // 建立個人會員訂單
-  async createPersonalOrder(orderData) {
+  async createPersonalOrder(orderData: OrderData): Promise<string> {
     try {
       const response = await fetch(
         `${API_BASE_URL}/forms/personal-membership-order`,
@@ -32,23 +32,27 @@ export const apiService = {
         throw new Error(error.error || 'Failed to create order');
       }
 
-      return await response.text(); // 回傳 Token
+      return await response.text();
     } catch (error) {
-      console.error('Error:', error);
-      throw error;
+      if (error instanceof Error) {
+        throw error;
+      }
+      throw new Error('Unknown error occurred');
     }
   },
 
-  // 綁定 Google 帳號
-  async linkGoogleAccount(code, redirectUri) {
+  async linkGoogleAccount(code: string, redirectUri: string): Promise<unknown> {
     try {
+      const token = localStorage.getItem('ordererToken');
+      if (!token) throw new Error('No orderer token found');
+
       const response = await fetch(
         `${API_BASE_URL}/auth/federated/Google/link`,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('orderToken')}`,
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
             flow: 'authorization_code',
@@ -65,8 +69,10 @@ export const apiService = {
 
       return await response.json();
     } catch (error) {
-      console.error('Error:', error);
-      throw error;
+      if (error instanceof Error) {
+        throw error;
+      }
+      throw new Error('Unknown error occurred');
     }
   },
 };

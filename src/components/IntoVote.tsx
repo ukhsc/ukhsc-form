@@ -32,7 +32,7 @@ export function IntoVote() {
       };
 
       const token = await apiService.createPersonalOrder(orderData);
-      localStorage.setItem('orderToken', token);
+      localStorage.setItem('ordererToken', token);
       window.location.href = '/last-step';
     } catch (error) {
       setMessage(error.message);
