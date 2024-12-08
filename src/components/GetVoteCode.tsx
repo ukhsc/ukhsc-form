@@ -80,9 +80,9 @@ export function GetVoteCode() {
       {boxStates && <Messagebox />}
       <section>
         <div className="contentbox">
-          <h1>高校特約聯盟會員購買</h1>
+          <h1>高校特約聯盟個人會員購買</h1>
           <form onSubmit={handleSubmit} className="loginform">
-            <label htmlFor="code">選擇學校</label>
+            <label htmlFor="code">您就讀的學校</label>
             <select
               value={schoolId}
               onChange={(e) => setSchoolId(e.target.value)}

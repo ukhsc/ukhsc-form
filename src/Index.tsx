@@ -10,7 +10,9 @@ import { SuccessPage } from './components/SuccessPage';
 function Home() {
   useEffect(() => {
     window.location.href = '/get-code';
-  });
+  }, []);
+
+  return null;
 }
 
 export const SchoolContext = createContext();

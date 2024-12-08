@@ -95,7 +95,7 @@ export const apiService = {
 
         if (error.error.startsWith('Account already linked')) {
           throw new Error(
-            '這個 Google 帳號已經綁定過其他高校特約會員帳號了，請換一個 Google 帳號綁定看看！'
+            '您已經綁定過帳號，或者這個 Google 帳號已經綁定過其他高校特約會員帳號了，請換一個 Google 帳號綁定看看！'
           );
         }
 

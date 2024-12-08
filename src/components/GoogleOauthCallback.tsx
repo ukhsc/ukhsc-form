@@ -18,7 +18,7 @@ export function GoogleOAuthCallback() {
       console.log('authCode:', authCode);
 
       if (!authCode) {
-        setMessage('未收到授權碼');
+        setMessage('綁定失敗：無法取得 Google 帳號資訊，請再試一次。');
         setBoxStates(true);
         return;
       }
