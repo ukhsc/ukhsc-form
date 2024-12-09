@@ -33,7 +33,7 @@ export function GoogleOAuthCallback() {
           navigate('/success');
         }, 2000);
       } catch (error) {
-        // TODO: 需要更親近使用者的用語
+        // TODO: 需要更親近使用者的用法
         setMessage(`綁定失敗：\n${error.message}`);
         console.error(error);
         setBoxStates(true);
@@ -71,9 +71,6 @@ export function GoogleOAuthCallback() {
           <div className="loginform">
             <p>{status ? <div className="loader"></div> : '綁定成功！'}</p>
           </div>
-          <p className="copyright">
-            Copyright © 2024 UKHSC 高雄高校特約聯盟 保留一切權利。
-          </p>
         </div>
       </section>
     </>

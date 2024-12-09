@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { SchoolContext } from '../Index';
 import apiService from '../services/api';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export function IntoVote() {
   const navigate = useNavigate();
@@ -67,10 +67,8 @@ export function IntoVote() {
   return (
     <>
       {boxStates && <Messagebox />}
-      <section>
         <div className="contentbox">
-          <h1>開始進行購買</h1>
-          <p className="voteCode_Text">您選擇的學校：{schoolName}</p>
+          <h1 className='que-title'>讓我們了解你</h1>
           <form onSubmit={handleSubmit} className="loginform">
             <label htmlFor="name">姓名</label>
             <input
@@ -110,18 +108,18 @@ export function IntoVote() {
               <option value="0002">不需要</option>
               <option value="0001">需要</option>
             </select>
-            <button type="submit" disabled={loading}>
-              {loading ? <div className="loader"></div> : '繼續'}
-            </button>
-            <a className="fpbtn" href="/get-code">
-              返回
-            </a>
+            <div className='next-btn-box'>
+              <div>
+                <a href='/get-code' className='back-lastpage-btn'>
+                  返回
+                </a>
+                <button type="submit" disabled={loading} className='next-step-btn'>
+                  {loading ? <div className="loader"></div> : '下一步'}
+                </button>
+              </div>
+            </div>
           </form>
-          <p className="copyright">
-            Copyright © 2024 UKHSC 高校特約聯盟 保留一切權利。
-          </p>
         </div>
-      </section>
     </>
   );
 }

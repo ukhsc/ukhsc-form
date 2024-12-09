@@ -3,9 +3,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: #fadec4;
-  background-color: #34495d;
+  color-scheme: light;
+  color: #34495d;
+  background-color: #fadec4;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,35 +15,101 @@
 }
 
 body {
-  margin: 0px;
-  height: 100vh;
+  margin: 0;
 }
 
-h1 {
-  font-size: 30px;
-  line-height: 1.1;
-}
-
-button {
-  margin: 0px;
-  margin-top: 25px;
-  border-radius: 100px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #ffffff;
-  color: #000;
-  cursor: pointer;
-  transition: border-color 0.25s;
+#root{
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
-button:hover {
-  background-color: #5f5f5f;
+/** Form Element **/
+/** Next Step Btn **/
+.next-btn-box{
+  position: fixed;
+  bottom: 25px;
+  left: 0;
+  box-sizing: border-box;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.next-btn-box div{
+  background-color: rgba(255, 255, 255, 0.37);
+  border-radius: 25px;
+  padding: 15px;
+  margin: 25px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-grow: 1;
+  max-width: 700px;
+  justify-content: center;
+  justify-items: center;
+}
+.next-step-btn{
+  padding: 15px;
+  border-radius: 10px;
+  margin-left: auto;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  width: 80px;
+  height: 50px;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+  background-color: #34495d;
   color: white;
+}
+.next-step-btn:hover{
+  background-color: #1d2833;
+  color: white;
+}
+.next-step-btn:active{
+  font-size: 12px;
+}
+.back-lastpage-btn{
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  text-decoration: none;
+  color: #34495d;
+  font-size: 16px;
+}
+
+/** select **/
+.select-box{
+  display: flex;
+  flex-wrap: wrap;
+}
+.option-btn{
+  padding: 15px;
+  border-radius: 100px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  transition: all ease-in-out 0.2s;
+  background-color: white;
+  align-items: center;
+  color: #34495d;
+}
+.option-btn svg{
+  margin: 5px;
+}
+.option-btn:hover{
+  background-color: rgba(255, 255, 255, 0.53);
+}
+.option-btn.active{
+  background-color: #34495d;
+  color: white;
+}
+.option-btn.active svg{
+  fill: white;
 }
 
 input {
@@ -87,13 +153,101 @@ label {
   margin-left: 0px;
 }
 
-.loginform {
+/** Header **/
+.page-header{
+  padding: 15px;
+  font-size: 14px;
+}
+
+.header-title{
+  margin: 0;
+}
+
+/** Footer **/
+.footer-box {
+  display: flex;
+  margin-top: auto;
+  font-size: 12px;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  width: 100%;
+  background-color: transparent;
+  color: #34495d;
+  box-sizing: border-box;
+  padding: 5px 15px 5px 15px;
+}
+
+.copyright p{
+  margin: 10px;
+}
+
+.ig-link-btn{
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  color: #34495d;
+  padding: 10px;
+  border-radius: 100px;
+}
+
+.ig-link-btn:hover{
+  background-color: #34495d;
+}
+
+.ig-link-btn:hover svg{
+  fill: white;
+}
+
+/** Main **/
+.contentbox {
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 40px;
-  padding-top: 5px;
   box-sizing: border-box;
+  border-radius: 20px;
+}
+@media (min-width: 100px) {
+  .contentbox {
+    width: 100%;
+  }
+}
+
+@media (min-width: 700px) {
+  .contentbox {
+    width: 60%;
+    max-width: 700px;
+  }
+}
+.form-box{
+  box-sizing: border-box;
+}
+.hamburger{ /** 漢堡人圖案 **/
+  position: absolute;
+  bottom: 50px;
+  transition: all ease-in-out 0.2s;
+  z-index: -1;
+}
+@media (min-width: 100px) {
+  .hamburger{ /** 漢堡人圖案 **/
+    right: 20px;
+    height: 250px;
+    width: 250px;
+  }
+}
+@media (min-width: 1000px) {
+  .hamburger{ /** 漢堡人圖案 **/
+    right:70px;
+    height: 300px;
+    width: 300px;
+  }
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+.que-title{ /** 每個問題的標題 **/
+  margin: 0 20px 20px 5px;
+  font-size: 30px;
 }
 
 .fpbtn {
@@ -122,21 +276,7 @@ label {
   color: rgb(0, 132, 255);
 }
 
-.contentbox {
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  justify-content: center;
-  border-radius: 20px;
-}
 
-section {
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-}
 
 .voteCode_Text {
   color: white;
@@ -213,32 +353,7 @@ section {
   /* 旋轉動畫 */
 }
 
-.copyright {
-  display: block;
-  margin: 0px;
-  font-size: 14px;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    'Open Sans',
-    'Helvetica Neue',
-    sans-serif;
-  font-weight: 500;
-  color: #818181;
-  position: fixed;
-  bottom: 0;
-  padding: 10px;
-  background-color: #373737;
-  color: #b1b1b1;
-  width: 100vw;
-  text-align: center;
-}
+
 
 .select-input {
   appearance: none;
@@ -282,19 +397,6 @@ section {
 
   100% {
     transform: rotate(360deg);
-  }
-}
-
-@media (min-width: 100px) {
-  .contentbox {
-    width: 100%;
-  }
-}
-
-@media (min-width: 700px) {
-  .contentbox {
-    width: 50%;
-    max-width: 500px;
   }
 }
 
@@ -437,26 +539,6 @@ ul li:not(:last-child) {
   margin: 10px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #34495d;
-    background-color: #fadec4;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #34495d;
-    color: white;
-  }
-
-  button:hover {
-    background-color: #1d2833;
-    color: white;
-  }
-
   input {
     background-color: white;
     color: #000000;
@@ -520,11 +602,6 @@ ul li:not(:last-child) {
     color: rgb(0, 0, 0);
   }
 
-  .copyright {
-    background-color: white;
-    color: #818181;
-  }
-
   .voteCode_Text {
     color: #34495d;
     background-color: white;
@@ -537,7 +614,6 @@ ul li:not(:last-child) {
   .ls_firstBox {
     background-image: linear-gradient(to bottom, #c4d8ec, #fadec4);
   }
-}
 
 .main_box {
   color: #34495d;

@@ -47,7 +47,7 @@ export function Last_Step() {
   }, [navigate, orderer_token]);
 
   return (
-    <section>
+    <>
       <div className="ls_firstBox">
         <p>快成功了...</p>
         <h1>只差最後一步</h1>
@@ -73,6 +73,6 @@ export function Last_Step() {
       </div>
       <div></div>
       {boxStates && <Messagebox />}
-    </section>
+    </>
   );
 }
