@@ -67,59 +67,64 @@ export function IntoVote() {
   return (
     <>
       {boxStates && <Messagebox />}
-        <div className="contentbox">
-          <h1 className='que-title'>讓我們了解你</h1>
-          <form onSubmit={handleSubmit} className="loginform">
-            <label htmlFor="name">姓名</label>
-            <input
-              id="name"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="請在此輸入您的姓名"
-              required
-            />
-            <label htmlFor="class">班級</label>
-            <input
-              id="class"
-              type="text"
-              value={Class}
-              onChange={(e) => setClass(e.target.value)}
-              placeholder="請在此輸入您的班級"
-              required
-            />
-            <label>座號</label>
-            <input
-              type="text"
-              value={number}
-              onChange={(e) => setNumber(e.target.value)}
-              placeholder="請在此輸入您的座號"
-              required
-              maxLength={6}
-            />
-            <label>是否需要貼紙</label>
-            <select
-              className="select-input"
-              value={sticker}
-              onChange={(e) => {
-                setSticker(e.target.value);
-              }}
-            >
-              <option value="0002">不需要</option>
-              <option value="0001">需要</option>
-            </select>
-            <div className='next-btn-box'>
-              <div>
-                <a href='/get-code' className='back-lastpage-btn'>
-                  返回
-                </a>
-                <button type="submit" disabled={loading} className='next-step-btn'>
-                  {loading ? <div className="loader"></div> : '下一步'}
-                </button>
-              </div>
+      <div className="contentbox">
+        <h1 className="que-title">開始進行購買</h1>
+        <form onSubmit={handleSubmit} className="loginform">
+          <label htmlFor="name">姓名</label>
+          <input
+            id="name"
+            type="text"
+            value={name}
+            inputMode="text"
+            onChange={(e) => setName(e.target.value)}
+            placeholder="請在此輸入您的姓名"
+            required
+          />
+          <label htmlFor="class">班級</label>
+          <input
+            id="class"
+            type="text"
+            value={Class}
+            onChange={(e) => setClass(e.target.value)}
+            placeholder="請在此輸入您的班級"
+            required
+          />
+          <label>座號</label>
+          <input
+            type="number"
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+            placeholder="請在此輸入您的座號"
+            required
+            maxLength={6}
+          />
+          <label>是否需要貼紙</label>
+          <select
+            className="select-input"
+            value={sticker}
+            onChange={(e) => {
+              setSticker(e.target.value);
+            }}
+          >
+            <option value="0002">不需要</option>
+            <option value="0001">需要</option>
+          </select>
+          <div className="next-btn-box">
+            <div>
+              <a href="/get-code" className="back-lastpage-btn">
+                返回
+              </a>
+              <button
+                type="submit"
+                disabled={loading}
+                className="next-step-btn"
+              >
+                {loading ? <div className="loader"></div> : '下一步'}
+              </button>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
+      </div>
     </>
   );
 }
