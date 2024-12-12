@@ -69,17 +69,10 @@ export function IntoVote() {
       {boxStates && <Messagebox />}
       <div className="contentbox">
         <h1 className="que-title">開始進行購買</h1>
+        <p className="que-description">
+          請務必填寫正確的資訊，以利學生會作業。
+        </p>
         <form onSubmit={handleSubmit} className="loginform">
-          <label htmlFor="name">姓名</label>
-          <input
-            id="name"
-            type="text"
-            value={name}
-            inputMode="text"
-            onChange={(e) => setName(e.target.value)}
-            placeholder="請在此輸入您的姓名"
-            required
-          />
           <label htmlFor="class">班級</label>
           <input
             id="class"
@@ -97,6 +90,16 @@ export function IntoVote() {
             placeholder="請在此輸入您的座號"
             required
             maxLength={6}
+          />
+          <label htmlFor="name">姓名</label>
+          <input
+            id="name"
+            type="text"
+            value={name}
+            inputMode="text"
+            onChange={(e) => setName(e.target.value)}
+            placeholder="請在此輸入您的姓名"
+            required
           />
           <label>是否需要貼紙</label>
           <select

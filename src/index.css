@@ -86,6 +86,7 @@ body {
 /** select **/
 .select-box {
   display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .option-btn {
@@ -269,6 +270,11 @@ section {
   font-size: 30px;
 }
 
+.que-description {
+  margin: 0 20px 20px 10px;
+  font-size: 18px;
+}
+
 .fpbtn {
   color: white;
   margin: 15px;
@@ -433,30 +439,53 @@ section {
       #34495d);
   background-size: 100% 20%;
   background-repeat: no-repeat;
+  text-align: center;
+  position: relative;
+  margin-bottom: 200px;
 }
 
 .ls_firstBox h1 {
   margin: 0;
+  font-size: 40px;
+}
+
+.top-text p {
+  margin: 5px;
 }
 
 .ls_firstBox p {
   padding: 0 20px;
+  font-size: 20px;
 }
 
-.google_button_text {
+.connect_btn p {
   margin: 0;
+  font-size: 22px;
 }
 
 .connect_btn {
+  display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 20px;
+  border: none;
+  font-weight: bold;
+  width: 300px;
+  height: 75px;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+  background-color: #34495d;
+  color: white;
 }
 
-.connect_btn svg {
-  margin: 5px 5px 5px 0;
+.connect_btn:hover {
+  background-color: #1d2833;
+  color: white;
 }
 
-.connect_btn:hover svg {
-  fill: white;
+.connect_btn:active {
+  font-size: 18px;
 }
 
 /** Success Page **/
