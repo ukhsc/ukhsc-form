@@ -25,7 +25,7 @@ export function SuccessPage() {
   });
 
   return (
-    <>
+    <div>
       <div className="successBox">
         <svg
           width="50"
@@ -127,7 +127,7 @@ export function SuccessPage() {
           </li>
         </ul>
       </div>
-    </>
+    </div>
   );
 }
 

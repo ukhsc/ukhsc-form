@@ -39,7 +39,7 @@ function Footer() {
   return (
     <div className="footer-box">
       <p>Copyright © 2024 UKHSC 高校特約聯盟 保留一切權利。</p>
-      <a className="ig-link-btn">
+      <a className="ig-link-btn" href="https://instagram.com/ukhsc_2024">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
