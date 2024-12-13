@@ -694,7 +694,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 0 25px;
+  padding: 0 25px 120px 25px;
 }
 
 .loginform label {
