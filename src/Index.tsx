@@ -1,29 +1,35 @@
 import React, { useEffect, createContext, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 
 import { IntoVote } from './components/IntoVote';
 import { GetVoteCode } from './components/GetVoteCode';
 import { GoogleOAuthCallback } from './components/GoogleOauthCallback';
 import { Last_Step } from './components/Last_Step';
 import { SuccessPage } from './components/SuccessPage';
-import { useNavigate } from 'react-router-dom';
 
 import hamburger from './assets/hamburger.svg';
 import { School } from './types';
 
-function Home() {
+function AppRoutes() {
   const navigate = useNavigate();
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('orderer_token');
-    if (loggedIn) {
-      navigate('/success');
-    } else {
-      navigate('/get-code');
-    }
+    if (loggedIn) navigate('/success');
   }, [navigate]);
 
-  return null;
+  return (
+    <Routes>
+      <Route path="/entrance" element={<IntoVote />}></Route>
+      <Route path="/get-code" element={<GetVoteCode />}></Route>
+      <Route
+        path="/oauth/google/callback"
+        element={<GoogleOAuthCallback />}
+      ></Route>
+      <Route path="/last-step" element={<Last_Step />}></Route>
+      <Route path="/success" element={<SuccessPage />}></Route>
+    </Routes>
+  );
 }
 
 function Footer() {
@@ -83,19 +89,9 @@ function Index() {
     <SchoolContext.Provider value={{ selectedSchool, setSelectedSchool }}>
       <Header />
       <section>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/entrance" element={<IntoVote />}></Route>
-            <Route path="/get-code" element={<GetVoteCode />}></Route>
-            <Route
-              path="/oauth/google/callback"
-              element={<GoogleOAuthCallback />}
-            ></Route>
-            <Route path="/last-step" element={<Last_Step />}></Route>
-            <Route path="/success" element={<SuccessPage />}></Route>
-          </Routes>
-        </Router>
+        <BrowserRouter>
+          <AppRoutes />
+        </BrowserRouter>
         <img src={hamburger} alt="hamburger" className="hamburger"></img>
       </section>
       <Footer />
