@@ -11,12 +11,22 @@ export function SuccessPage() {
 
   useEffect(() => {
     document.title = '訂購成功！';
-    apiService.getOrderInfo().then((data) => {
-      setName(data.real_name);
-      setClass(data.class);
-      setNumber(data.number);
-      setSchoolId(data.school_id);
-    });
+    apiService
+      .getOrderInfo()
+      .then((data) => {
+        setName(data.real_name);
+        setClass(data.class);
+        setNumber(data.number);
+        setSchoolId(data.school_id);
+      })
+      .catch((error) => {
+        if (
+          error instanceof Error &&
+          error.message === 'Unauthorized (Invalid token)'
+        ) {
+          localStorage.removeItem('orderer_token');
+        }
+      });
 
     apiService.getPartnerSchools().then((data) => {
       const selectedSchool = data.find((school) => school.id === schoolId);
