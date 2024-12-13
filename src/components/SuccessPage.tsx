@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 
 import apiService from '../services/api';
 
@@ -20,7 +20,7 @@ export function SuccessPage() {
 
     apiService.getPartnerSchools().then((data) => {
       const selectedSchool = data.find((school) => school.id === schoolId);
-      setSchoolName(selectedSchool.short_name);
+      if (selectedSchool) setSchoolName(selectedSchool.short_name);
     });
   });
 

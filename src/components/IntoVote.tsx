@@ -1,12 +1,12 @@
-import { useState, useEffect, useContext } from 'react';
-import { SchoolContext } from '../Index';
+import { useState, useEffect, FormEvent } from 'react';
 import apiService from '../services/api';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useSchoolContext } from '../Index';
 
 export function IntoVote() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const { schoolId, schoolName } = useContext(SchoolContext);
+  const { selectedSchool, setSelectedSchool } = useSchoolContext();
 
   //儲存購買人基本資訊
   const [name, setName] = useState('');
@@ -16,13 +16,17 @@ export function IntoVote() {
   const [message, setMessage] = useState('');
   const [boxStates, setBoxStates] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
+    if (!selectedSchool) {
+      throw new Error('selectedSchool must be defined');
+    }
+
     try {
       const orderData = {
-        school_id: parseInt(schoolId),
+        school_id: selectedSchool.id,
         class: Class,
         number: number,
         real_name: name,
@@ -33,8 +37,10 @@ export function IntoVote() {
       localStorage.setItem('orderer_token', token);
       navigate('/last-step');
     } catch (error) {
-      setMessage(error.message);
-      setBoxStates(true);
+      if (error instanceof Error) {
+        setMessage(error.message);
+        setBoxStates(true);
+      }
     } finally {
       setLoading(false);
     }
@@ -42,7 +48,7 @@ export function IntoVote() {
 
   useEffect(() => {
     document.title = '高校特約聯盟會員購買';
-    if (!schoolId) {
+    if (!selectedSchool) {
       navigate('/get-code');
     }
   }, []);

@@ -4,10 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import apiService from '../services/api';
 
 export function GoogleOAuthCallback() {
-  const [status, setStatus] = useState(true);
+  const [status, _] = useState(true);
   const [message, setMessage] = useState('');
   const [boxStates, setBoxStates] = useState(false);
   const hasExecutedRef = useRef(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleCallback = async () => {
@@ -34,16 +35,17 @@ export function GoogleOAuthCallback() {
         }, 2000);
       } catch (error) {
         // TODO: 需要更親近使用者的用法
-        setMessage(`綁定失敗：\n${error.message}`);
-        console.error(error);
-        setBoxStates(true);
+        if (error instanceof Error) {
+          setMessage(`綁定失敗：\n${error.message}`);
+          console.error(error);
+          setBoxStates(true);
+        }
       }
     };
 
     handleCallback();
-  }, []);
+  }, [navigate]);
 
-  const navigate = useNavigate();
   const closebox = () => {
     setMessage('');
     setBoxStates(false);

@@ -1,20 +1,19 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import apiService from '../services/api';
 import { School, PartnerPlan } from '../types';
-import { SchoolContext } from '../Index';
+import { useSchoolContext } from '../Index';
 
 export function GetVoteCode() {
   const [message, setMessage] = useState('');
   const [boxStates, setBoxStates] = useState(false);
   const [schools, setSchools] = useState<School[]>([]);
   const navigate = useNavigate();
-  const { schoolId, schoolName, setSchoolName, setSchoolId } =
-    useContext(SchoolContext);
+  const { selectedSchool, setSelectedSchool } = useSchoolContext();
 
   useEffect(() => {
     document.title = '高校特約聯盟會員購買';
-    if (!schoolId) {
+    if (!selectedSchool) {
       navigate('/get-code');
     }
 
@@ -38,13 +37,13 @@ export function GetVoteCode() {
     all_btn.forEach((btn) => {
       btn.classList.remove('active');
     });
-    if (schoolId) {
-      const btn = document.getElementById(schoolId);
-      btn.classList.add('active');
+    if (selectedSchool) {
+      const btn = document.getElementById(selectedSchool.id.toString());
+      btn!.classList.add('active');
     }
-  }, [schoolId]);
+  }, [selectedSchool, navigate]);
 
-  const closebox = () => {
+  const closeBox = () => {
     setMessage('');
     setBoxStates(false);
     navigate('/get-code');
@@ -55,21 +54,15 @@ export function GetVoteCode() {
       <div className="m-contentbox">
         <h3 className="m-title">系統通知</h3>
         <p className="m-message">{message}</p>
-        <button onClick={closebox} id="closebtn">
+        <button onClick={closeBox} id="closebtn">
           關閉
         </button>
       </div>
     </div>
   );
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const selectedSchool = schools.find(
-      (school) => school.id === parseInt(schoolId)
-    );
-    setSchoolName(selectedSchool.short_name);
-    setSchoolId(schoolId);
-    console.log(schoolId);
     navigate('/entrance');
   };
 
@@ -78,13 +71,19 @@ export function GetVoteCode() {
       {boxStates && <Messagebox />}
       <div className="contentbox">
         <h1 className="que-title">首先，請選擇您就讀的學校</h1>
+        {selectedSchool?.plan === PartnerPlan.Combined && (
+          <p className="que-description">
+            已繳納{selectedSchool.short_name}
+            學生會會費者，可免費獲得高校特約會員資格，不需填寫本表單購買。
+          </p>
+        )}
         <form onSubmit={handleSubmit} className="form-box">
           <div className="select-box">
             {schools.map((school) => (
               <button
                 key={school.id}
-                id={school.id}
-                onClick={(e) => setSchoolId(school.id)}
+                id={school.id.toString()}
+                onClick={(e) => setSelectedSchool(school)}
                 type="button"
                 className="option-btn"
               >

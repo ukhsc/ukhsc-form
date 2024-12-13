@@ -9,6 +9,7 @@ import { SuccessPage } from './components/SuccessPage';
 import { useNavigate } from 'react-router-dom';
 
 import hamburger from './assets/hamburger.svg';
+import { School } from './types';
 
 function Home() {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ function Home() {
 function Footer() {
   const setBodyHeight = () => {
     const rootDiv = document.getElementById('root');
-    rootDiv.style.height = `${window.innerHeight}px`;
+    if (rootDiv) rootDiv.style.height = `${window.innerHeight}px`;
   };
 
   useEffect(() => {
@@ -62,15 +63,24 @@ function Header() {
   );
 }
 
-export const SchoolContext = createContext();
+interface SchoolContextType {
+  selectedSchool: School | null;
+  setSelectedSchool: (school: School | null) => void;
+}
+const SchoolContext = createContext<SchoolContextType | null>(null);
+export const useSchoolContext = () => {
+  const context = React.useContext(SchoolContext);
+  if (!context) {
+    throw new Error('useSchoolContext must be used within a SchoolProvider');
+  }
+  return context;
+};
 
 function Index() {
-  const [schoolId, setSchoolId] = useState('');
-  const [schoolName, setSchoolName] = useState('');
+  const [selectedSchool, setSelectedSchool] = useState<School | null>(null);
+
   return (
-    <SchoolContext.Provider
-      value={{ schoolId, setSchoolId, schoolName, setSchoolName }}
-    >
+    <SchoolContext.Provider value={{ selectedSchool, setSelectedSchool }}>
       <Header />
       <section>
         <Router>
