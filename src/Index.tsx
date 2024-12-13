@@ -20,8 +20,8 @@ function AppRoutes() {
 
   return (
     <Routes>
+      <Route path="/" element={<GetVoteCode />}></Route>
       <Route path="/entrance" element={<IntoVote />}></Route>
-      <Route path="/get-code" element={<GetVoteCode />}></Route>
       <Route
         path="/oauth/google/callback"
         element={<GoogleOAuthCallback />}

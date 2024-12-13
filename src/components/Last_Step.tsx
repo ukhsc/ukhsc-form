@@ -41,7 +41,7 @@ export function Last_Step() {
       setMessage('請先完成購買程序');
       setBoxStates(true);
       setTimeout(() => {
-        navigate('/get-code');
+        navigate('/');
       }, 2000);
     }
   }, [navigate, orderer_token]);

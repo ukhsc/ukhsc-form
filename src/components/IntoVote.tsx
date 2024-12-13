@@ -49,9 +49,9 @@ export function IntoVote() {
   useEffect(() => {
     document.title = '高校特約聯盟會員購買';
     if (!selectedSchool) {
-      navigate('/get-code');
+      navigate('/');
     }
-  }, []);
+  }, [navigate, selectedSchool]);
 
   const closebox = () => {
     setMessage('');
@@ -120,7 +120,7 @@ export function IntoVote() {
           </select>
           <div className="next-btn-box">
             <div>
-              <a href="/get-code" className="back-lastpage-btn">
+              <a href="/" className="back-lastpage-btn">
                 返回
               </a>
               <button

@@ -28,7 +28,7 @@ export function SuccessPage() {
           error.message === 'Unauthorized (Invalid token)'
         ) {
           localStorage.removeItem('orderer_token');
-          navigate('/get-code');
+          navigate('/');
         }
       });
 

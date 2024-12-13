@@ -14,7 +14,7 @@ export function GetVoteCode() {
   useEffect(() => {
     document.title = '高校特約聯盟會員購買';
     if (!selectedSchool) {
-      navigate('/get-code');
+      navigate('/');
     }
 
     const loadSchools = async () => {
@@ -46,7 +46,7 @@ export function GetVoteCode() {
   const closeBox = () => {
     setMessage('');
     setBoxStates(false);
-    navigate('/get-code');
+    navigate('/');
   };
 
   const Messagebox = () => (
