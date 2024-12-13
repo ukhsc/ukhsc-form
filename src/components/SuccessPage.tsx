@@ -2,12 +2,15 @@ import { useState, useEffect } from 'react';
 
 import apiService from '../services/api';
 
+import { useNavigate } from 'react-router-dom';
+
 export function SuccessPage() {
   const [name, setName] = useState('');
   const [class_name, setClass] = useState('');
   const [number, setNumber] = useState('');
   const [schoolName, setSchoolName] = useState('');
   const [schoolId, setSchoolId] = useState<number>();
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = '訂購成功！';
@@ -25,6 +28,7 @@ export function SuccessPage() {
           error.message === 'Unauthorized (Invalid token)'
         ) {
           localStorage.removeItem('orderer_token');
+          navigate('/get-code');
         }
       });
 
