@@ -25,7 +25,8 @@ export function SuccessPage() {
       .catch((error) => {
         if (
           error instanceof Error &&
-          error.message === 'Unauthorized (Invalid token)'
+          (error.message === 'Unauthorized (Invalid token)' ||
+            error.message === 'Order not found')
         ) {
           localStorage.removeItem('orderer_token');
           navigate('/');

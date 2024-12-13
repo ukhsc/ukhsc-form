@@ -26,7 +26,7 @@ export function GetVoteCode() {
             school.plan === PartnerPlan.Combined
         );
         setSchools(schoolsData);
-      } catch (error) {
+      } catch (_) {
         setMessage('無法載入合作學校列表，請再試一次。');
         setBoxStates(true);
       }
@@ -83,7 +83,7 @@ export function GetVoteCode() {
               <button
                 key={school.id}
                 id={school.id.toString()}
-                onClick={(e) => setSelectedSchool(school)}
+                onClick={(_) => setSelectedSchool(school)}
                 type="button"
                 className="option-btn"
               >
