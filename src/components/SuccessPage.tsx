@@ -5,10 +5,11 @@ import apiService from '../services/api';
 import { useNavigate } from 'react-router-dom';
 
 export function SuccessPage() {
-  const [name, setName] = useState('');
-  const [class_name, setClass] = useState('');
-  const [number, setNumber] = useState('');
-  const [schoolName, setSchoolName] = useState('');
+  const [name, setName] = useState<string>();
+  const [class_name, setClass] = useState<string>();
+  const [number, setNumber] = useState<string>();
+  const [schoolName, setSchoolName] = useState<string>();
+  const [needSticker, setNeedSticker] = useState<boolean>();
   const [schoolId, setSchoolId] = useState<number>();
   const navigate = useNavigate();
 
@@ -21,6 +22,7 @@ export function SuccessPage() {
         setClass(data.class);
         setNumber(data.number);
         setSchoolId(data.school_id);
+        setNeedSticker(data.need_sticker);
       })
       .catch((error) => {
         if (
@@ -104,21 +106,6 @@ export function SuccessPage() {
                 fill="#000000"
                 viewBox="0 0 256 256"
               >
-                <path d="M200,112a8,8,0,0,1-8,8H152a8,8,0,0,1,0-16h40A8,8,0,0,1,200,112Zm-8,24H152a8,8,0,0,0,0,16h40a8,8,0,0,0,0-16Zm40-80V200a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56ZM216,200V56H40V200H216Zm-80.26-34a8,8,0,1,1-15.5,4c-2.63-10.26-13.06-18-24.25-18s-21.61,7.74-24.25,18a8,8,0,1,1-15.5-4,39.84,39.84,0,0,1,17.19-23.34,32,32,0,1,1,45.12,0A39.76,39.76,0,0,1,135.75,166ZM96,136a16,16,0,1,0-16-16A16,16,0,0,0,96,136Z"></path>
-              </svg>
-              <p>姓名</p>
-            </div>
-            <p className="value_text">{name}</p>
-          </li>
-          <li className="list_item">
-            <div className="list_title">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="#000000"
-                viewBox="0 0 256 256"
-              >
                 <path d="M240,192h-8V56a16,16,0,0,0-16-16H40A16,16,0,0,0,24,56V192H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM40,56H216V192H200V168a8,8,0,0,0-8-8H120a8,8,0,0,0-8,8v24H72V88H184v48a8,8,0,0,0,16,0V80a8,8,0,0,0-8-8H64a8,8,0,0,0-8,8V192H40ZM184,192H128V176h56Z"></path>
               </svg>
               <p>班級</p>
@@ -139,6 +126,117 @@ export function SuccessPage() {
               <p>座號</p>
             </div>
             <p className="value_text">{number}</p>
+          </li>
+          <li className="list_item">
+            <div className="list_title">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="#000000"
+                viewBox="0 0 256 256"
+              >
+                <path d="M200,112a8,8,0,0,1-8,8H152a8,8,0,0,1,0-16h40A8,8,0,0,1,200,112Zm-8,24H152a8,8,0,0,0,0,16h40a8,8,0,0,0,0-16Zm40-80V200a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56ZM216,200V56H40V200H216Zm-80.26-34a8,8,0,1,1-15.5,4c-2.63-10.26-13.06-18-24.25-18s-21.61,7.74-24.25,18a8,8,0,1,1-15.5-4,39.84,39.84,0,0,1,17.19-23.34,32,32,0,1,1,45.12,0A39.76,39.76,0,0,1,135.75,166ZM96,136a16,16,0,1,0-16-16A16,16,0,0,0,96,136Z"></path>
+              </svg>
+              <p>姓名</p>
+            </div>
+            <p className="value_text">{name}</p>
+          </li>
+          <li className="list_item">
+            <div className="list_title">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="#000000"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M136,216H88a48,48,0,0,1-48-48V88A48,48,0,0,1,88,40h80a48,48,0,0,1,48,48v48C208,160,160,208,136,216Z"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                />
+                <path
+                  d="M136,216V184a48,48,0,0,1,48-48h32"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                />
+              </svg>
+              <p>是否需要貼紙</p>
+            </div>
+            <p className="value_text">{needSticker ? '需要' : '不需要'}</p>
+          </li>
+          <li className="list_item">
+            <div className="list_title">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="#000000"
+                viewBox="0 0 256 256"
+              >
+                <ellipse
+                  cx="128"
+                  cy="104"
+                  rx="104"
+                  ry="48"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                />
+                <line
+                  x1="128"
+                  y1="152"
+                  x2="128"
+                  y2="200"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                />
+                <path
+                  d="M24,104v48c0,24,40,48,104,48s104-24,104-48V104"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                />
+                <line
+                  x1="192"
+                  y1="142.11"
+                  x2="192"
+                  y2="190.11"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                />
+                <line
+                  x1="64"
+                  y1="142.11"
+                  x2="64"
+                  y2="190.11"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                />
+              </svg>
+              <p>應付金額</p>
+            </div>
+            <p className="value_text">新臺幣 10 元</p>
           </li>
         </ul>
       </div>
