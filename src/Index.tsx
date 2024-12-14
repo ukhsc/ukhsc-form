@@ -10,10 +10,15 @@ import { SuccessPage } from './components/SuccessPage';
 import hamburger from './assets/hamburger.svg';
 import { School } from './types';
 
+const DEVELOPER_MODE =
+  new URLSearchParams(window.location.search).get('dev') === 'true';
+
 function AppRoutes() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (DEVELOPER_MODE) return;
+
     const loggedIn = localStorage.getItem('orderer_token');
     const linked_federated_account = localStorage.getItem(
       'linked_federated_account'
