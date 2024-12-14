@@ -18,6 +18,7 @@ export interface OrderData {
   number: string;
   real_name: string;
   need_sticker: boolean;
+  created_at: string | null;
 }
 
 export interface Order {

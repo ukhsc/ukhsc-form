@@ -1,5 +1,5 @@
 import React, { useEffect, createContext, useState } from 'react';
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 
 import { IntoVote } from './components/IntoVote';
 import { GetVoteCode } from './components/GetVoteCode';
@@ -11,7 +11,7 @@ import hamburger from './assets/hamburger.svg';
 import { School } from './types';
 
 function AppRoutes() {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('orderer_token');
@@ -37,11 +37,6 @@ function Footer() {
     const rootDiv = document.getElementById('root');
     if (rootDiv) rootDiv.style.height = `${window.innerHeight}px`;
   };
-
-  useEffect(() => {
-    window.addEventListener('resize', setBodyHeight);
-    setBodyHeight();
-  }, []);
 
   return (
     <div className="footer-box">
