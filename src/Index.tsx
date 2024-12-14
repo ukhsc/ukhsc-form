@@ -15,7 +15,17 @@ function AppRoutes() {
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('orderer_token');
-    if (loggedIn) navigate('/success');
+    const linked_federated_account = localStorage.getItem(
+      'linked_federated_account'
+    );
+    if (loggedIn) {
+      if (linked_federated_account) {
+        navigate('/success');
+      } else if (window.location.pathname !== '/oauth/google/callback') {
+        console.log(window.location.pathname);
+        navigate('/last-step');
+      }
+    }
   }, [navigate]);
 
   return (

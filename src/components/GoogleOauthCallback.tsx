@@ -29,6 +29,7 @@ export function GoogleOAuthCallback() {
           authCode,
           window.location.origin + '/oauth/google/callback'
         );
+        localStorage.setItem('linked_federated_account', 'true');
 
         setTimeout(() => {
           navigate('/success');
