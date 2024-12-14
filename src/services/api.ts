@@ -1,5 +1,5 @@
 /// <reference types="vite/client" />
-import { School, OrderData, Order } from '../types';
+import { School, OrderInputData, Order } from '../types';
 
 const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL || 'https://api.ukhsc.org';
@@ -16,7 +16,7 @@ export const apiService = {
     }
   },
 
-  async createPersonalOrder(orderData: OrderData): Promise<string> {
+  async createPersonalOrder(orderData: OrderInputData): Promise<string> {
     try {
       const response = await fetch(
         `${API_BASE_URL}/forms/personal-membership-order`,

@@ -609,61 +609,77 @@ section {
 }
 
 /** Success Page **/
-.success-page-main{
+.success-page-main {
   display: flex;
   flex-direction: column;
   width: 100%;
   position: relative;
   background-color: rgb(241, 215, 191);
 }
+
 @media (min-width: 100px) {
-  .box1, .box2{
+
+  .box1,
+  .box2 {
     width: 100%;
   }
-  .success-page-main{
+
+  .success-page-main {
     padding: 5px;
   }
 }
+
 @media (min-width: 700px) {
-  .box1, .box2 {
+
+  .box1,
+  .box2 {
     width: 50%;
   }
-  .success-page-main{
+
+  .success-page-main {
     padding: 15px;
   }
 }
-.box1, .box2{
+
+.box1,
+.box2 {
   padding: 5px;
   position: relative;
   box-sizing: border-box;
 }
 
-.order_InfBox{
+.order_InfBox {
   display: flex;
 }
+
 @media (min-width: 100px) {
-  .order_InfBox{
+  .order_InfBox {
     flex-direction: column;
   }
 }
+
 @media (min-width: 700px) {
-  .order_InfBox{
+  .order_InfBox {
     flex-direction: row;
   }
 }
+
 .successBox {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 25px 25px 0 25px;
 }
+
 .successBox p {
   margin-top: 5px;
   font-size: 16px;
 }
+
 .successBox svg {
   margin-bottom: 10px;
 }
+
 .done_title {
   margin: 0;
   font-size: 24px;
@@ -746,7 +762,7 @@ ul li:not(:last-child) {
 }
 
 /** 商品資訊 **/
-.box2-inBox{
+.box2-inBox {
   background-color: white;
   border-radius: 25px;
   display: flex;
@@ -754,39 +770,48 @@ ul li:not(:last-child) {
   padding: 15px;
   margin: 15px;
 }
-.product_Inf{
+
+.product_Inf {
   display: flex;
   align-items: center;
   box-sizing: border-box;
 }
-.money-box{
+
+.money-box {
   display: flex;
   padding: 10px;
   align-items: center;
   border-top: 1px solid #dbdbdb;
   margin-top: 15px;
 }
-.money-title{
+
+.money-title {
   margin: 5px;
 }
-.m-value-text{
+
+.m-value-text {
   margin: 0 0 0 auto;
 }
-.product_photo{
+
+.product_photo {
   width: 60px;
   border-radius: 20px;
   margin: 5px;
   border: 1px solid rgba(213, 188, 166, 0.44);
 }
-.product-money{
+
+.product-money {
   margin: 5px 5px 5px auto;
 }
-.product_text{
+
+.product_text {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-left: 10px;
 }
-.product_text h3, .product_text p {
+
+.product_text h3,
+.product_text p {
   margin: 0;
 }

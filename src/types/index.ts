@@ -12,19 +12,18 @@ export enum PartnerPlan {
   Combined = 'Combined',
 }
 
-export interface OrderData {
+export interface OrderInputData {
   school_id: number;
   class: string;
   number: string;
   real_name: string;
   need_sticker: boolean;
-  created_at: string | null;
 }
 
 export interface Order {
   id: number;
-  created_at: string | null;
-  updated_at: string | null;
+  created_at: string;
+  updated_at: string;
   member_id: string | null;
   school_id: number;
   class: string;

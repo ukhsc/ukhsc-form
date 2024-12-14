@@ -6,7 +6,7 @@ import { useSchoolContext } from '../Index';
 export function IntoVote() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const { selectedSchool, setSelectedSchool } = useSchoolContext();
+  const { selectedSchool } = useSchoolContext();
 
   //儲存購買人基本資訊
   const [name, setName] = useState('');
