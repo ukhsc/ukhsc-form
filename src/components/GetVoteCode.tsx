@@ -73,8 +73,21 @@ export function GetVoteCode() {
         <h1 className="que-title">首先，請選擇您就讀的學校</h1>
         {selectedSchool?.plan === PartnerPlan.Combined && (
           <p className="que-description">
-            已繳納{selectedSchool.short_name}
-            學生會會費者，可免費獲得高校特約會員資格，不需填寫本表單購買。
+            <strong>已繳納</strong>
+            {selectedSchool.short_name}
+            學生會會費者 ，可免費獲得高校特約會員資格，
+            <strong>不需填寫本表單購買</strong>。
+            {selectedSchool.short_name === '仁武高中' && (
+              <>
+                <br />
+                但倘若您為 <strong>高二高三有繳納會費者 </strong>
+                ，請
+                <strong>
+                  <a href="https://tally.so/r/wAW4by">點我提供證明</a>
+                </strong>
+                以兌換會員資格
+              </>
+            )}
           </p>
         )}
         <form onSubmit={handleSubmit} className="form-box">

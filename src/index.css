@@ -24,6 +24,11 @@ body {
   justify-content: center;
 }
 
+a {
+  text-decoration: none;
+  color: #ae560f;
+}
+
 /** Form Element **/
 /** Next Step Btn **/
 .next-btn-box {
@@ -301,8 +306,6 @@ section {
   color: rgb(0, 132, 255);
 }
 
-
-
 .voteCode_Text {
   color: white;
   margin: 0;
@@ -399,8 +402,6 @@ section {
   /* 旋轉動畫 */
 }
 
-
-
 .select-input {
   appearance: none;
   -webkit-appearance: none;
@@ -455,9 +456,11 @@ section {
   align-items: center;
   justify-items: center;
   flex-direction: column;
-  background-image: linear-gradient(to bottom,
-      rgba(138, 121, 107, 0.67),
-      #34495d);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(138, 121, 107, 0.67),
+    #34495d
+  );
   background-size: 100% 20%;
   background-repeat: no-repeat;
   text-align: center;
@@ -688,7 +691,6 @@ section {
 .main_box {
   color: #34495d;
 }
-
 
 .loginform {
   display: flex;
