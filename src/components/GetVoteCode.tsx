@@ -80,7 +80,7 @@ export function GetVoteCode() {
             {selectedSchool.short_name === '仁武高中' && (
               <>
                 <br />
-                但倘若您為 <strong>高二高三有繳納會費者 </strong>
+                但倘若您為<strong>高二高三有繳納會費者</strong>
                 ，請
                 <strong>
                   <a href="https://tally.so/r/wAW4by">點我提供證明</a>
