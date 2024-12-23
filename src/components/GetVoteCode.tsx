@@ -70,17 +70,27 @@ export function GetVoteCode() {
     <>
       {boxStates && <Messagebox />}
       <div className="contentbox">
-        <h1>你好！</h1>
-        <p>目前暫不開放學生填寫此表單，聯盟已經更改政策，現在您不需要購買也可享有會員資格，且不需要付費。</p>
-        <div className='line'></div>
-        <p>若要成為會員，你必須是以下學校的學生：</p>
-        <ul>
+        <h1 className="que-title">你好！</h1>
+        <p className="que-description">
+          聯盟已更改政策，只要您是以下合作學校的在學學生，
+          <strong>
+            皆可免費獲得
+          </strong>高雄高校特約聯盟的會員資格。
+        </p>
+        <div className="line"></div>
+        <p className="que-description">本屆合作學校（持續更新中）：</p>
+        <ul className="que-description">
           {schools.map((school) => (
-            <li key={school.id}>{school.short_name}</li>
+            <li key={school.id}>{school.full_name}</li>
           ))}
         </ul>
-        <p>若你為以上學校的學生，現在只需要等待學生會通知您相關特約資訊。</p>
-        <h3>感謝你對本聯盟的支持！</h3>
+        <p className="que-description">
+          若您為以上學校的在學學生，請關注貴校學生會及聯盟的最新公告，以便取得特約商店相關訊息。
+          <br />
+          如果您曾透過個人購買管道購買會員，屆時使用 App
+          時可沿用先前用於訂購的帳號，亦可另外綁定新帳號。
+        </p>
+        <h1 className="que-title">感謝你對本聯盟的支持！</h1>
       </div>
     </>
   );
