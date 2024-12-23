@@ -7,31 +7,31 @@ import { GoogleOAuthCallback } from './components/GoogleOauthCallback';
 import { Last_Step } from './components/Last_Step';
 import { SuccessPage } from './components/SuccessPage';
 
-import hamburger from './assets/hamburger.svg';
+// import hamburger from './assets/hamburger.svg';
 import { School } from './types';
 
-const DEVELOPER_MODE =
-  new URLSearchParams(window.location.search).get('dev') === 'true';
+// const DEVELOPER_MODE =
+//   new URLSearchParams(window.location.search).get('dev') === 'true';
 
 function AppRoutes() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    if (DEVELOPER_MODE) return;
+  // useEffect(() => {
+  //   if (DEVELOPER_MODE) return;
 
-    const loggedIn = localStorage.getItem('orderer_token');
-    const linked_federated_account = localStorage.getItem(
-      'linked_federated_account'
-    );
-    if (loggedIn) {
-      if (linked_federated_account) {
-        navigate('/success');
-      } else if (window.location.pathname !== '/oauth/google/callback') {
-        console.log(window.location.pathname);
-        navigate('/last-step');
-      }
-    }
-  }, [navigate]);
+  //   const loggedIn = localStorage.getItem('orderer_token');
+  //   const linked_federated_account = localStorage.getItem(
+  //     'linked_federated_account'
+  //   );
+  //   if (loggedIn) {
+  //     if (linked_federated_account) {
+  //       navigate('/success');
+  //     } else if (window.location.pathname !== '/oauth/google/callback') {
+  //       console.log(window.location.pathname);
+  //       navigate('/last-step');
+  //     }
+  //   }
+  // }, [navigate]);
 
   return (
     <Routes>
@@ -48,15 +48,15 @@ function AppRoutes() {
 }
 
 function Footer() {
-  const setBodyHeight = () => {
-    const rootDiv = document.getElementById('root');
-    if (rootDiv) rootDiv.style.height = `${window.innerHeight}px`;
-  };
+  // const setBodyHeight = () => {
+  //   const rootDiv = document.getElementById('root');
+  //   if (rootDiv) rootDiv.style.height = `${window.innerHeight}px`;
+  // };
 
-  useEffect(() => {
-    window.addEventListener('resize', setBodyHeight);
-    setBodyHeight();
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener('resize', setBodyHeight);
+  //   setBodyHeight();
+  // }, []);
 
   return (
     <div className="footer-box">
