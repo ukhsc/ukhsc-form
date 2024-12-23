@@ -107,7 +107,6 @@ function Index() {
         <BrowserRouter>
           <AppRoutes />
         </BrowserRouter>
-        <img src={hamburger} alt="hamburger" className="hamburger"></img>
       </section>
       <Footer />
     </SchoolContext.Provider>
