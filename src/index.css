@@ -214,11 +214,26 @@ label {
 
 /** Main **/
 .contentbox {
-  padding: 10px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   border-radius: 20px;
+}
+
+/* .contentbox h1{
+  margin: 0;
+} */
+.contentbox li {
+  list-style: none;
+  border-bottom: none !important;
+  font-weight: bold;
+}
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: #dacac2;
+  margin-bottom: 10px;
 }
 
 @media (min-width: 100px) {

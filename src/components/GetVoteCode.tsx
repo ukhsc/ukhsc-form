@@ -70,57 +70,27 @@ export function GetVoteCode() {
     <>
       {boxStates && <Messagebox />}
       <div className="contentbox">
-        <h1 className="que-title">首先，請選擇您就讀的學校</h1>
-        {selectedSchool?.plan === PartnerPlan.Combined && (
-          <p className="que-description">
-            <strong>已繳納</strong>
-            {selectedSchool.short_name}
-            學生會會費者 ，可免費獲得高校特約會員資格，
-            <strong>不需填寫本表單購買</strong>。
-            {selectedSchool.short_name === '仁武高中' && (
-              <>
-                <br />
-                但倘若您為<strong>高二高三有繳納會費者</strong>
-                ，請
-                <strong>
-                  <a href="https://tally.so/r/wAW4by">點我提供證明</a>
-                </strong>
-                以兌換會員資格
-              </>
-            )}
-          </p>
-        )}
-        <form onSubmit={handleSubmit} className="form-box">
-          <div className="select-box">
-            {schools.map((school) => (
-              <button
-                key={school.id}
-                id={school.id.toString()}
-                onClick={(_) => setSelectedSchool(school)}
-                type="button"
-                className="option-btn"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  fill="#000000"
-                  viewBox="0 0 256 256"
-                >
-                  <path d="M226.53,56.41l-96-32a8,8,0,0,0-5.06,0l-96,32A8,8,0,0,0,24,64v80a8,8,0,0,0,16,0V75.1L73.59,86.29a64,64,0,0,0,20.65,88.05c-18,7.06-33.56,19.83-44.94,37.29a8,8,0,1,0,13.4,8.74C77.77,197.25,101.57,184,128,184s50.23,13.25,65.3,36.37a8,8,0,0,0,13.4-8.74c-11.38-17.46-27-30.23-44.94-37.29a64,64,0,0,0,20.65-88l44.12-14.7a8,8,0,0,0,0-15.18ZM176,120A48,48,0,1,1,89.35,91.55l36.12,12a8,8,0,0,0,5.06,0l36.12-12A47.89,47.89,0,0,1,176,120ZM128,87.57,57.3,64,128,40.43,198.7,64Z"></path>
-                </svg>
-                {school.short_name}
-              </button>
-            ))}
-          </div>
-          <div className="next-btn-box">
-            <div>
-              <button type="submit" className="next-step-btn">
-                下一步
-              </button>
-            </div>
-          </div>
-        </form>
+        <h1 className="que-title">你好！</h1>
+        <p className="que-description">
+          聯盟已更改政策，只要您是以下合作學校的在學學生，
+          <strong>
+            皆可免費獲得
+          </strong>高雄高校特約聯盟的會員資格。
+        </p>
+        <div className="line"></div>
+        <p className="que-description">本屆合作學校（持續更新中）：</p>
+        <ul className="que-description">
+          {schools.map((school) => (
+            <li key={school.id}>{school.full_name}</li>
+          ))}
+        </ul>
+        <p className="que-description">
+          若您為以上學校的在學學生，請關注貴校學生會及聯盟的最新公告，以便取得特約商店相關訊息。
+          <br />
+          如果您曾透過個人購買管道購買會員，屆時使用 App
+          時可沿用先前用於訂購的帳號，亦可另外綁定新帳號。
+        </p>
+        <h1 className="que-title">感謝你對本聯盟的支持！</h1>
       </div>
     </>
   );
